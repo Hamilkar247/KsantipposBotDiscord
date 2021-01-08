@@ -33,7 +33,7 @@ class KsantipposBot:
 
         @client.event
         async def on_ready():
-            for guild in client.guildis:
+            for guild in client.guilds:
                 if guild.name == GUILD:
                     break
 
