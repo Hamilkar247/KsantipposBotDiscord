@@ -42,7 +42,6 @@ class KsantipposBot:
 
 def main():
     args=def_params()
-    dotenvConfig()
     ksantBot = KsantipposBot()
 
 if __name__ == "__main__":
