@@ -29,6 +29,8 @@ class KsantipposBot:
         self.GUILD = os.getenv('DISCORD_GUILD')
 
     def clientDiscord(self):
+        client = discord.Client()
+
         @client.event
         async def on_ready():
             for guild in client.guildis:
