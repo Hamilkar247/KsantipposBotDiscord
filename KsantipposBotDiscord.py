@@ -29,6 +29,7 @@ class KsantipposBot:
     def dotenvConfig():
         load_dotenv()
         self.TOKEN = os.getenv('DISCORD_TOKEN')
+        self.GUILD = os.getenv('DISCORD_GUILD')
 
     def clientDiscord():
         @client.event
