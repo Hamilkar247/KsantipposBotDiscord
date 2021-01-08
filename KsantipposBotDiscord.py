@@ -19,15 +19,15 @@ class KsantipposBot:
     def __init__(self):
         super().__init__()
         self.TOKEN = None
-        dotenvConfig()
-        clientDiscord()
+        self.dotenvConfig()
+        self.clientDiscord()
 
-    def dotenvConfig():
+    def dotenvConfig(self):
         load_dotenv()
         self.TOKEN = os.getenv('DISCORD_TOKEN')
         self.GUILD = os.getenv('DISCORD_GUILD')
 
-    def clientDiscord():
+    def clientDiscord(self):
         @client.event
         async def on_ready():
             for guild in client.guildis:
