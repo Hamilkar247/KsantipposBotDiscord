@@ -1,5 +1,7 @@
 import logging
 import argparse
+import discord
+from dotenv import load_dotenv
 
 def def_params():
     parser = argparse.ArgumentParser(
@@ -12,9 +14,32 @@ def def_params():
         print("args:" + str(args))
     return args
 
+def dotenvConfig():
+    load_dotenv()
+    TOKEN = os.getenv('DISCORD_TOKEN')
+
+class KsantipposBot:
+
+    def __init__(self):
+        super().__init__()
+        self.TOKEN = None
+        dotenvConfig()
+        clientDiscord()
+
+    def dotenvConfig():
+        load_dotenv()
+        self.TOKEN = os.getenv('DISCORD_TOKEN')
+
+    def clientDiscord():
+        @client.event
+        async def on_ready():
+            print(f'{client.user} has connected to Discord!')
+        client.run(self.TOKEN)
 
 def main():
     args=def_params()
+    dotenvConfig()
+    ksantBot = KsantipposBot()
 
 if __name__ == "__main__":
     main()
