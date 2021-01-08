@@ -14,10 +14,6 @@ def def_params():
         print("args:" + str(args))
     return args
 
-def dotenvConfig():
-    load_dotenv()
-    TOKEN = os.getenv('DISCORD_TOKEN')
-
 class KsantipposBot:
 
     def __init__(self):
