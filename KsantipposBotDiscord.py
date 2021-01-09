@@ -1,6 +1,7 @@
 import logging
 import argparse
 import os
+import random
 import discord
 from dotenv import load_dotenv
 
@@ -44,7 +45,6 @@ class KsantipposBot:
 
             members = '\n - '.join([member.name for member in guild.members])
             print(f'Guild Members:\n - {members}')
-        client.run(self.TOKEN)
 
         @client.event
         async def on_member_join(member):
@@ -52,6 +52,30 @@ class KsantipposBot:
             await member.dm_channel.send(
                 f'Hi {member.name}, welcome to my Discord server!'
             )
+
+        @client.event
+        async def on_message(message):
+            if message.author == client.user:
+                return
+
+            brooklyn_99_quotes = [
+               'I\'m the human form of the 💯 emoji.',
+               'Bingpot!',
+               (
+                   '''
+                   I am young, I am twenty years old; yet I know nothing of life but despair, death, fear,
+                   and fatuous superficiality cast over an abyss of sorrow. I see how peoples are set against
+                   one another, and in silence, unknowingly, foolishly, obediently, innocently slay one another.
+                   ― Erich Maria Remarque, All Quiet on the Western Front
+                   '''
+               )
+            ]
+
+            if message.content == '99!':
+                response = random.choice(brooklyn_99_quotes)
+                await message.channel.send(response)
+
+        client.run(self.TOKEN)
 
 def main():
     args=def_params()
