@@ -34,7 +34,8 @@ class KsantipposBot:
 
         @client.event
         async def on_ready():
-            guild = discord.utils.find(lambda g: g.name == GUILD, client.guilds)
+            #guild = discord.utils.find(lambda g: g.name == self.GUILD, client.guilds)
+            guild = discord.utils.get(client.guilds, name=self.GUILD)
 
             print(
                 f'{client.user} is connected to to the following guild:\n'
