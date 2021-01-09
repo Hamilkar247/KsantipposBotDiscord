@@ -20,6 +20,7 @@ class KsantipposBot:
     def __init__(self):
         super().__init__()
         self.TOKEN = None
+        self.GUILD = None
         self.dotenvConfig()
         self.clientDiscord()
 
@@ -34,7 +35,7 @@ class KsantipposBot:
         @client.event
         async def on_ready():
             for guild in client.guilds:
-                if guild.name == GUILD:
+                if guild.name == self.GUILD:
                     break
 
             print(
