@@ -42,6 +42,9 @@ class KsantipposBot:
                 f'{client.user} is connected to to the following guild:\n'
                 f'{guild.name}(id: {guild.id})'
             )
+
+            members = '\n - '.join([member.name for member in guild.members])
+            print(f'Guild Members:\n - {members}')
         client.run(self.TOKEN)
 
 def main():
