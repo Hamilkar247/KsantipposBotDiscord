@@ -33,18 +33,7 @@ class KsantipposBot:
     def clientDiscord(self):
         client = discord.Client()
 
-        @client.event
-        async def on_ready():
-            #guild = discord.utils.find(lambda g: g.name == self.GUILD, client.guilds)
-            guild = discord.utils.get(client.guilds, name=self.GUILD)
-
-            print(
-                f'{client.user} is connected to to the following guild:\n'
-                f'{guild.name}(id: {guild.id})'
-            )
-
-            members = '\n - '.join([member.name for member in guild.members])
-            print(f'Guild Members:\n - {members}')
+        self.readDiscordGuildMember(client)
 
         @client.event
         async def on_member_join(member):
@@ -76,6 +65,22 @@ class KsantipposBot:
                 await message.channel.send(response)
 
         client.run(self.TOKEN)
+
+    def readDiscordGuildMember(self, client):
+
+        @client.event
+        async def on_ready():
+
+            #guild = discord.utils.find(lambda g: g.name == self.GUILD, client.guilds)
+            guild = discord.utils.get(client.guilds, name=self.GUILD)
+
+            print(
+                f'{client.user} is connected to to the following guild:\n'
+                f'{guild.name}(id: {guild.id})'
+            )
+
+            members = '\n - '.join([member.name for member in guild.members])
+            print(f'Guild Members:\n - {members}')
 
 def main():
     args=def_params()
