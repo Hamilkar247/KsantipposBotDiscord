@@ -46,6 +46,13 @@ class KsantipposBot:
             print(f'Guild Members:\n - {members}')
         client.run(self.TOKEN)
 
+        @client.event
+        async def on_member_join(member):
+            await member.create_dm()
+            await member.dm_channel.send(
+                f'Hi {member.name}, welcome to my Discord server!'
+            )
+
 def main():
     args=def_params()
     ksantBot = KsantipposBot()
