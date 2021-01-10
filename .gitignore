@@ -5,3 +5,5 @@ venv/
 .flagkusy
 discord
 .env
+*/__pycache__/*
+*.pyc
