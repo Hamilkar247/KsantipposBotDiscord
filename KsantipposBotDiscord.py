@@ -35,29 +35,7 @@ class KsantipposBot:
 
         self.readDiscordGuildMember(client)
         self.newMemberMessage(client)
-
-
-        @client.event
-        async def on_message(message):
-            if message.author == client.user:
-                return
-
-            brooklyn_99_quotes = [
-               'I\'m the human form of the 💯 emoji.',
-               'Bingpot!',
-               (
-                   '''
-                   I am young, I am twenty years old; yet I know nothing of life but despair, death, fear,
-                   and fatuous superficiality cast over an abyss of sorrow. I see how peoples are set against
-                   one another, and in silence, unknowingly, foolishly, obediently, innocently slay one another.
-                   ― Erich Maria Remarque, All Quiet on the Western Front
-                   '''
-               )
-            ]
-
-            if message.content == '99!':
-                response = random.choice(brooklyn_99_quotes)
-                await message.channel.send(response)
+        self.messageToAnswerUser(client)
 
         client.run(self.TOKEN)
 
@@ -85,6 +63,30 @@ class KsantipposBot:
             await member.dm_channel.send(
                 f'Hi {member.name}, welcome to my Discord server!'
             )
+
+    def messageToAnswerUser(self, client):
+
+        @client.event
+        async def on_message(message):
+            if message.author == client.user:
+                return
+
+            brooklyn_99_quotes = [
+               'I\'m the human form of the 💯 emoji.',
+               'Bingpot!',
+               (
+                   '''
+                   I am young, I am twenty years old; yet I know nothing of life but despair, death, fear,
+                   and fatuous superficiality cast over an abyss of sorrow. I see how peoples are set against
+                   one another, and in silence, unknowingly, foolishly, obediently, innocently slay one another.
+                   ― Erich Maria Remarque, All Quiet on the Western Front
+                   '''
+               )
+            ]
+
+            if message.content == '99!':
+                response = random.choice(brooklyn_99_quotes)
+                await message.channel.send(response)
 
 def main():
     args=def_params()
