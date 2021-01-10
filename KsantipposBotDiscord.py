@@ -34,13 +34,8 @@ class KsantipposBot:
         client = discord.Client()
 
         self.readDiscordGuildMember(client)
+        self.newMemberMessage(client)
 
-        @client.event
-        async def on_member_join(member):
-            await member.create_dm()
-            await member.dm_channel.send(
-                f'Hi {member.name}, welcome to my Discord server!'
-            )
 
         @client.event
         async def on_message(message):
@@ -81,6 +76,15 @@ class KsantipposBot:
 
             members = '\n - '.join([member.name for member in guild.members])
             print(f'Guild Members:\n - {members}')
+
+    def newMemberMessage(self, client):
+
+        @client.event
+        async def on_member_join(member):
+            await member.create_dm()
+            await member.dm_channel.send(
+                f'Hi {member.name}, welcome to my Discord server!'
+            )
 
 def main():
     args=def_params()
