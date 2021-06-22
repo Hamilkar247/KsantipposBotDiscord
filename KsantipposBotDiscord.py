@@ -106,8 +106,10 @@ class KsantipposBot:
                 raise discord.DiscordException
 
 def main():
-    args=def_params()
-    ksantBot = KsantipposBot()
+    if os.path.exists(".env"):
+        args=def_params()
+        ksantBot = KsantipposBot()
+    print("zakonczenie dzialanie ksantipposa")
 
 if __name__ == "__main__":
     main()
