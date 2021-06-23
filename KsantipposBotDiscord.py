@@ -87,6 +87,21 @@ class KsantipposBot:
             if message.content == '99!':
                 response = random.choice(brooklyn_99_quotes)
                 await message.channel.send(response)
+            print(message.content.find("!roll"))
+            if message.content.find("!roll") == 0:
+                string=message.content[6:]
+                print(string)
+                x=string.split("d")
+                print(x)
+                if x[0]=="":
+                    x[0]="1"
+                list_numbers=[]
+                number=0
+                while number < int(x[0]):
+                    list_numbers.append(random.randint(1,int(x[1])))
+                    number=number+1
+                response = random.randint(1,101)
+                await message.channel.send(list_numbers)
             elif message.content == 'raise-exception':
                 raise discord.DiscordException
 
