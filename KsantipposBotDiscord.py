@@ -48,7 +48,7 @@ class KsantipposBot:
             guild = discord.utils.get(client.guilds, name=self.GUILD)
 
             print(
-                f'{client.user} is connected to to the following guild:\n'
+                #f'{client.user} is connected to to the following guild:\n'
                 f'{guild.name}(id: {guild.id})'
             )
 
